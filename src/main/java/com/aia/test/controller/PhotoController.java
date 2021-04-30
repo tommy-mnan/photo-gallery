@@ -3,6 +3,7 @@ package com.aia.test.controller;
 import com.aia.test.service.PhotoServiceImpl;
 import com.aia.test.util.ResponseModelSuccess;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,9 @@ public class PhotoController {
     private PhotoServiceImpl photoService;
 
     @GetMapping("/search")
-    public ArrayList search(){
+    public ResponseEntity search(){
         ArrayList result = photoService.callGetPhotoByTag();
-        return result;
+        ResponseModelSuccess response = new ResponseModelSuccess(HttpStatus.OK.value(),"Success",result);
+        return ResponseEntity.ok(response);
     }
 }

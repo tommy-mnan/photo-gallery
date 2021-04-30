@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class Photo {
     private String title;
     private String link;
-    private JsonNode media;
+    private String media;
     @JsonProperty("date_taken")
     private String dateTaken;
     private String description;
@@ -16,6 +16,7 @@ public class Photo {
     @JsonProperty("author_id")
     private String authorId;
     private String tags;
+
 
     public String getTitle() {
         return title;
@@ -29,16 +30,17 @@ public class Photo {
         return link;
     }
 
+    @JsonIgnore
     public void setLink(String link) {
         this.link = link;
     }
 
-    public JsonNode getMedia() {
+    public String getMedia() {
         return media;
     }
 
     public void setMedia(JsonNode media) {
-        this.media = media;
+        this.media = media.get("m").asText();
     }
 
     public String getDateTaken() {
@@ -61,6 +63,7 @@ public class Photo {
         return published;
     }
 
+    @JsonIgnore
     public void setPublished(String published) {
         this.published = published;
     }
