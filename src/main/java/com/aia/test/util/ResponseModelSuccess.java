@@ -12,9 +12,18 @@ public class ResponseModelSuccess {
     @JsonProperty("data")
     private Object data;
 
-    public ResponseModelSuccess(int status, String responseMessage, Object data) {
+    @JsonProperty("current_page")
+    private int currentPage;
+
+    @JsonProperty("total_page")
+    private int total_page;
+
+
+    public ResponseModelSuccess(int status, String responseMessage, Object data,int currentPage, int total_page) {
         this.status = status;
         this.responseMessage = responseMessage;
         this.data = data;
+        this.currentPage = currentPage;
+        this.total_page = total_page;
     }
 }

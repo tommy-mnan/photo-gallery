@@ -1,10 +1,7 @@
 package com.aia.test.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.http.ResponseEntity;
-
-import java.util.ArrayList;
+import com.aia.test.util.ArrayWithPage;
 
 public interface PhotoService {
-    ArrayList callGetPhotoByTag();
+    ArrayWithPage callGetPhotoByTag(String tags, String ids, int page);
 }
