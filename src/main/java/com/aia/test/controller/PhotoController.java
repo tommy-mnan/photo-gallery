@@ -26,4 +26,11 @@ public class PhotoController {
         ResponseModelSuccess response = new ResponseModelSuccess(HttpStatus.OK.value(),"Success",result.getList(),result.getCurrentPage(),result.getTotalPage());
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/save")
+    public ResponseEntity<ResponseModelSuccess> responseEntitysave(@RequestParam(required=false) String tags, @RequestParam(required=false) String id){
+        ArrayList<Photo> photos = photoService.savePhotoFromAPI(tags,id);
+        ResponseModelSuccess response = new ResponseModelSuccess(HttpStatus.OK.value(),"Success",photos,1,1);
+        return  ResponseEntity.ok(response);
+    }
 }

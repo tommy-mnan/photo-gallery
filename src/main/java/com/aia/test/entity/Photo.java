@@ -4,19 +4,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "photos")
 public class Photo {
+
     private String title;
     private String link;
+    @Id
     private String media;
     @JsonProperty("date_taken")
     private String dateTaken;
+    @Column(length = 2000)
     private String description;
     private String published;
     private String author;
     @JsonProperty("author_id")
     private String authorId;
+    @Column(length = 500)
     private String tags;
-
 
     public String getTitle() {
         return title;
