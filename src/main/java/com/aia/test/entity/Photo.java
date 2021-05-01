@@ -16,7 +16,7 @@ public class Photo {
     private String media;
     @JsonProperty("date_taken")
     private String dateTaken;
-    @Column(length = 2000)
+    @Column(length = 2500)
     private String description;
     private String published;
     private String author;
