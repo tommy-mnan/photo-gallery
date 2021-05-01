@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface PhotoService {
     ArrayWithPage callGetPhotoByTag(String tags, String ids, int page);
     ArrayList<Photo> savePhotoFromAPI(String tags, String ids);
+    void deleteAllData();
 }

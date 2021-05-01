@@ -40,6 +40,11 @@ public class PhotoServiceImpl implements  PhotoService{
         return (ArrayList<Photo>) photoRepository.saveAll(converToList(result));
     }
 
+    @Override
+    public void deleteAllData() {
+        photoRepository.deleteAll();
+    }
+
     private ResponseEntity<JsonNode> getDataFromApi(String tags, String id){
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));

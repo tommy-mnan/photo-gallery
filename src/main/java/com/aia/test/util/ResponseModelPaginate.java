@@ -2,7 +2,7 @@ package com.aia.test.util;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ResponseModelSuccess {
+public class ResponseModelPaginate {
     @JsonProperty("message")
     private String responseMessage;
 
@@ -19,7 +19,7 @@ public class ResponseModelSuccess {
     private int total_page;
 
 
-    public ResponseModelSuccess(int status, String responseMessage, Object data,int currentPage, int total_page) {
+    public ResponseModelPaginate(int status, String responseMessage, Object data, int currentPage, int total_page) {
         this.status = status;
         this.responseMessage = responseMessage;
         this.data = data;
